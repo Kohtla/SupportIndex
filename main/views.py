@@ -1,6 +1,6 @@
-
-from django.views.generic import View
+from django.views.generic import View, ListView
 from django.shortcuts import render
+from .models import Site
 
 # Create your views here.
 class IndexView(View):
@@ -9,3 +9,18 @@ class IndexView(View):
     # display blank form
     def get(self, request):
         return render(request, self.template_name, None)
+
+
+class Portfolio(ListView):
+    template_name = 'main/portfolio.html'
+    context_object_name = 'sites'
+
+    def get_queryset(self):
+        return Site.objects.all()
+
+class SiteDetail(ListView):
+    template_name = 'main/portfolio.html'
+    context_object_name = 'sites'
+
+    def get_queryset(self):
+        return Site.objects.all()

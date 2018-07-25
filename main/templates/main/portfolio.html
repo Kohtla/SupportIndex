@@ -1,0 +1,5 @@
+<h1>Our sites</h1>
+
+        {% for site in sites%}
+            <a class="btn btn-primary btn-lg" href="{% url 'main:detail' site.id %}" role="button">{{ site.name }}</a>
+        {% endfor %}
