@@ -1,0 +1,8 @@
+<h1>{{post.name}}</h1>
+{{post.post}}
+
+<h3>Комментарии</h3>
+{% for com in post.comment_set.all%}
+<h6>{{com.author}}</h6>
+<p>{{com.message}}</p>
+{% endfor %}

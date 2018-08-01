@@ -1,4 +1,4 @@
-from django.views.generic import View, ListView
+from django.views.generic import View, ListView, DetailView
 from django.shortcuts import render
 from .models import Site
 
@@ -18,9 +18,6 @@ class Portfolio(ListView):
     def get_queryset(self):
         return Site.objects.all()
 
-class SiteDetail(ListView):
-    template_name = 'main/portfolio.html'
-    context_object_name = 'sites'
-
-    def get_queryset(self):
-        return Site.objects.all()
+class SiteDetail(DetailView):
+    model = Site
+    template_name = 'main/sitedetail.html'

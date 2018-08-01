@@ -1,0 +1,5 @@
+<h1>Our posts</h1>
+
+        {% for one_post in posts %}
+            <a class="btn btn-primary btn-lg" href="{% url 'article:detail' one_post.id %}" role="button">{{ one_post.name }}</a>
+        {% endfor %}
